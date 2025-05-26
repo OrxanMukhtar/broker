@@ -17,7 +17,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url(/mukhtarli/pictures/background.jpg);
+    background-image: url(./pictures/background.jpg);
     background-size: cover;
     background-position: bottom;
     /* border-radius: 20px; */
