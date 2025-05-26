@@ -1,0 +1,134 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #b3adad;
+    /* padding: 20px; */
+}
+
+
+.backgroundSection {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(/mukhtarli/pictures/background.jpg);
+    background-size: cover;
+    background-position: bottom;
+    /* border-radius: 20px; */
+
+}
+/* .backgroundSection img {
+    width: 100%;
+    height: 100vh;
+    object-fit: contain;
+} */
+
+.mainSection {
+    width: 100%;
+    height: 600px;
+    border-radius: 50px;
+    margin-top: -100px;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    background-color: #fff;
+}
+
+.ppDiv {
+    width: 100%;
+    /* height: 200px; */
+    display: flex;
+    align-items: start;
+    justify-content: center;
+}
+.ppDiv img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: -100px;
+    padding: 10px;
+    background-color: #fff;
+}
+.textSection {
+    width: 100%;
+    /* height: 300px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 30px;
+    color: #0c0c0c;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+h2 {
+    font-size: 20px;
+    color: #686767;
+    text-align: center;
+    margin-bottom: 20px;
+    font-style: normal;
+}
+
+footer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #2f8b83;
+    margin-top: -90px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.socialDiv {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.socialDiv img {
+    width: 50px;
+    height: 50px;
+    margin: 0 10px;
+    transition: transform 0.3s ease;
+    color: #fff;
+}
+.socialDiv img:hover {
+    transform: scale(1.1);
+}
+.socialDiv img:active {
+    transform: scale(0.9);
+}
+.socialDiv a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.instagramDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.powP {
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
