@@ -6,8 +6,9 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #b3adad;
+    background-color: #fff;
     /* padding: 20px; */
+    /* border: 10px solid #2f8b83; */
 }
 
 
@@ -17,7 +18,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url(./pictures/background.jpg);
+    background-image: url(./pictures/background2.png);
     background-size: cover;
     background-position: bottom;
     /* border-radius: 20px; */
@@ -38,7 +39,7 @@ body {
     /* display: flex;
     align-items: center;
     justify-content: center; */
-    background-color: #fff;
+    background-color: #fff   ;
 }
 
 .ppDiv {
@@ -55,7 +56,7 @@ body {
     /* box- shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
     margin-top: -100px;
     padding: 10px;
-    background-color: #fff;
+    background-color: #ffffff80   ;
 }
 .textSection {
     width: 100%;
@@ -82,9 +83,41 @@ h2 {
     font-family: 'Times New Roman', Times, serif;
 }
 
+.userInfoDiv {
+    position: sticky;
+    width: 100%;
+  top: 0px; 
+  left: 0px; 
+  background-color: #fff;
+  padding: 10px;
+  z-index: 1000; 
+
+}
+
+.stickyDiv {
+    position: fixed !important; /* Safari */
+    /* position: sticky !important; */
+    width: 100%;
+    z-index: 1000;
+    bottom: 10px;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.stickyDiv2 {
+    position: fixed !important;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    bottom: 10px;
+    right: 0;
+    z-index: 1000;
+}
+
 footer {
     width: 100%;
-    /* height: 100%; */
     padding-bottom: 10px;
     display: flex;
     flex-direction: column;
@@ -94,8 +127,9 @@ footer {
     margin-top: -90px;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
-    position: fixed;
+    /* position: fixed; */
     bottom: 0;
+    left: 0;
     z-index: 10000;
 }
 
@@ -146,7 +180,7 @@ footer {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    background-color: #fff;
+    background-color: #fff   ;
     border-radius: 20px;
     padding: 20px;
     margin-top: 50px;
