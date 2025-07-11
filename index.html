@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Allahverdi Mukhtarli</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -25,7 +30,7 @@
     header img {
       width: 150px;
       border-radius: 50%;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     }
 
     header h1 {
@@ -67,8 +72,9 @@
     .activeSection {
       display: block;
     }
+
     #home {
-        background-color: #f9f9f9;
+      background-color: #f9f9f9;
     }
 
     #home iframe {
@@ -90,10 +96,12 @@
       background: #fff;
       border-radius: 10px;
       padding: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
-    .feature-box h4 { margin-bottom: 10px; }
+    .feature-box h4 {
+      margin-bottom: 10px;
+    }
 
     footer {
       background-color: #20645e;
@@ -115,20 +123,46 @@
       transform: scale(1.1);
     }
 
-    .sticky-call, .sticky-whatsapp {
+    .sticky-call,
+    .sticky-whatsapp {
       position: fixed;
       bottom: 10px;
       z-index: 9999;
     }
 
-    .sticky-call { left: 10px; }
-    .sticky-whatsapp { right: 10px; }
+    .sticky-call {
+      left: 10px;
+    }
 
-    .sticky-call img, .sticky-whatsapp img {
+    .sticky-whatsapp {
+      right: 10px;
+    }
+
+    .sticky-call img,
+    .sticky-whatsapp img {
       width: 60px;
+    }
+    .contactUl a {
+      text-decoration: none;
+      color: #20645e;
+      font-weight: 500;
+      transition: color 0.3s;
+      font-size: 20px;
+    }
+    .contactUl img {
+      vertical-align: middle;
+      margin-right: 8px;
+      width: 25px;
+    }
+    #contact {
+      background-color: #f9f9f9;
+      padding: 40px 20px;
+      border-radius: 10px;
+      /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
     }
   </style>
 </head>
+
 <body>
 
   <header>
@@ -151,7 +185,9 @@
     <iframe src="https://www.tradingview.com/embed-widget/ticker-tape/?locale=en" frameborder="0"></iframe>
 
     <h2 style="margin-top: 40px;">Latest Dubai Investment Insights</h2>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/e__1YCuEvy4?start=1&autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/e__1YCuEvy4?start=1&autoplay=1&mute=1"
+      title="YouTube video player" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture"
+      allowfullscreen></iframe>
     <h2 style="margin-top: 40px;">Why Invest in Dubai?</h2>
     <div class="features-list">
       <div class="feature-box">
@@ -178,31 +214,62 @@
   </section>
 
   <!-- About Section -->
-  <section id="about" class="section">
-    <h2>About Me</h2>
-    <p>I'm Allahverdi Mukhtarli, a certified investment consultant based in Dubai. I help local and international clients make profitable real estate decisions — from off-plan properties to rental-based opportunities.</p>
-    <p>Through my work with <strong>EVR.AE</strong>, I offer full-service guidance for investors, with market analysis, property selection, and visa support. Whether you're buying your first unit or building a full portfolio, I’ll guide you every step of the way.</p>
-  </section>
+<section id="about" style="padding: 60px 20px; background-color: #f9f9f9; color: #1f2d2b;">
+  <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+    <h2 style="font-size: 36px; color: #2f8b83; margin-bottom: 20px;">Who I Am</h2>
+    
+    <p style="font-size: 18px; line-height: 1.8; margin-bottom: 20px;">
+      My name is <strong>Allahverdi Mukhtarli</strong> — a certified real estate investment consultant based in Dubai.  
+      I help ambitious clients from all around the world make smart and profitable property decisions in one of the world’s most dynamic markets.
+    </p>
+    
+    <p style="font-size: 18px; line-height: 1.8; margin-bottom: 20px;">
+      Working with <strong>EVR.AE</strong>, I provide a full-service experience — from tailored property selection and ROI-focused guidance to visa assistance and long-term investment strategies.
+    </p>
+    
+    <p style="font-size: 18px; line-height: 1.8;">
+      Whether you're purchasing your first Dubai home or expanding a global portfolio, my job is to make the process clear, smooth, and profitable — every step of the way.
+    </p>
+  </div>
+</section>
 
   <!-- Contact Section -->
   <section id="contact" class="section">
     <h2>Contact</h2>
     <p>Reach out to me directly:</p>
-    <ul style="list-style: none; padding-left: 0;">
-      <li style="margin: 10px 0;">📞 <a href="tel:+971528526766">+971 52 852 6766</a></li>
-      <li style="margin: 10px 0;">💬 <a href="https://wa.me/971528526766" target="_blank">WhatsApp Chat</a></li>
-      <li style="margin: 10px 0;">📷 <a href="https://www.instagram.com/a_mukhtarli/" target="_blank">Instagram</a></li>
-      <li style="margin: 10px 0;">▶️ <a href="https://www.youtube.com/@allahverdimuxtarli" target="_blank">YouTube</a></li>
+    <ul class="contactUl" style="list-style: none; padding-left: 0;">
+      <li style="margin: 10px 0;">
+        <img src="https://cdn-icons-png.flaticon.com/512/597/597177.png" width="20"
+          style="vertical-align: middle; margin-right: 8px;" />
+        <a href="tel:+971528526766">+971 52 852 6766</a>
+      </li>
+      <li style="margin: 10px 0;">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="20"
+          style="vertical-align: middle; margin-right: 8px;" />
+        <a href="https://wa.me/971528526766" target="_blank">WhatsApp</a>
+      </li>
+      <li style="margin: 10px 0;">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="20"
+          style="vertical-align: middle; margin-right: 8px;" />
+        <a href="https://www.instagram.com/a_mukhtarli/" target="_blank">Instagram</a>
+      </li>
+      <li style="margin: 10px 0;">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" width="20"
+          style="vertical-align: middle; margin-right: 8px;" />
+        <a href="https://www.youtube.com/@allahverdimuxtarli" target="_blank">YouTube</a>
+      </li>
     </ul>
+
   </section>
 
   <footer>
-    <p style="margin-top: 10px;">© 2025 Mukhtarli Web. All rights reserved.</p>
+    <p style="margin-top: 10px;">© 2025 Mukhtarli Web.<br> All rights reserved.</p>
   </footer>
 
   <!-- Sticky Buttons -->
   <a class="sticky-call" href="tel:+971528526766"><img src="./pictures/callicon.png" alt="Call"></a>
-  <a class="sticky-whatsapp" href="https://wa.me/971528526766" target="_blank"><img src="./pictures/wpicon.png" alt="WhatsApp"></a>
+  <a class="sticky-whatsapp" href="https://wa.me/971528526766" target="_blank"><img src="./pictures/wpicon.png"
+      alt="WhatsApp"></a>
 
   <!-- Section Toggle Script -->
   <script>
@@ -221,4 +288,5 @@
   </script>
 
 </body>
+
 </html>
