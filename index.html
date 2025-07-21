@@ -56,6 +56,7 @@
       color: #fff;
       font-weight: 500;
       transition: color 0.3s;
+      cursor: pointer;
     }
 
     nav ul li a:hover {
@@ -142,6 +143,7 @@
     .sticky-whatsapp img {
       width: 60px;
     }
+
     .contactUl a {
       text-decoration: none;
       color: #20645e;
@@ -149,16 +151,91 @@
       transition: color 0.3s;
       font-size: 20px;
     }
+
     .contactUl img {
       vertical-align: middle;
       margin-right: 8px;
       width: 25px;
     }
+
     #contact {
       background-color: #f9f9f9;
       padding: 40px 20px;
       border-radius: 10px;
       /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    }
+
+    /* ROI Calculator Styles */
+    .roi-section {
+      background: #f7f7f7;
+      padding: 40px 20px;
+      font-family: Arial, sans-serif;
+      max-width: 700px;
+      margin: 0 auto 60px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .roi-container {
+      width: 100%;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    .input-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 6px;
+      cursor: default;
+    }
+
+    .input-group label span {
+      cursor: help;
+      border-bottom: 1px dotted #333;
+      font-weight: normal;
+      color: #555;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #20645e;
+      color: white;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #14493a;
+    }
+
+    .results {
+      margin-top: 30px;
+      background: #e9f5ff;
+      padding: 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .results ul {
+      padding-left: 20px;
+      margin-top: 10px;
     }
   </style>
 </head>
@@ -175,6 +252,7 @@
     <ul>
       <li><a href="#" data-section="home">Home</a></li>
       <li><a href="#" data-section="about">About</a></li>
+      <li><a href="#" data-section="roi">ROI Calculator</a></li>
       <li><a href="#" data-section="contact">Contact</a></li>
     </ul>
   </nav>
@@ -186,8 +264,8 @@
 
     <h2 style="margin-top: 40px;">Latest Dubai Investment Insights</h2>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/e__1YCuEvy4?start=1&autoplay=1&mute=1"
-      title="YouTube video player" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture"
-      allowfullscreen></iframe>
+      title="YouTube video player" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+
     <h2 style="margin-top: 40px;">Why Invest in Dubai?</h2>
     <div class="features-list">
       <div class="feature-box">
@@ -214,19 +292,55 @@
   </section>
 
   <!-- About Section -->
-<section class="section" id="about" style="padding: 60px 20px; background-color: #f9f9f9; color: #1f2d2b;">
-  <div style="max-width: 900px; margin: 0 auto; text-align: center;">
-    <h2 style="font-size: 36px; color: #2f8b83;">Who I Am</h2>
-    <p style="font-size: 18px;">My name is <strong>Allahverdi Mukhtarli</strong> — a certified real estate investment consultant based in Dubai...</p>    
-    <p style="font-size: 18px; line-height: 1.8; margin-bottom: 20px;">
-      Working with <strong>EVR.AE</strong>, I provide a full-service experience — from tailored property selection and ROI-focused guidance to visa assistance and long-term investment strategies.
-    </p>
-    
-    <p style="font-size: 18px; line-height: 1.8;">
-      Whether you're purchasing your first Dubai home or expanding a global portfolio, my job is to make the process clear, smooth, and profitable — every step of the way.
-    </p>
-  </div>
-</section>
+  <section class="section" id="about" style="padding: 60px 20px; background-color: #f9f9f9; color: #1f2d2b;">
+    <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+      <h2 style="font-size: 36px; color: #2f8b83;">Who I Am</h2>
+      <p style="font-size: 18px;">My name is <strong>Allahverdi Mukhtarli</strong> — a certified real estate investment consultant based in Dubai...</p>
+      <p style="font-size: 18px; line-height: 1.8; margin-bottom: 20px;">
+        Working with <strong>EVR.AE</strong>, I provide a full-service experience — from tailored property selection and ROI-focused guidance to visa assistance and long-term investment strategies.
+      </p>
+
+      <p style="font-size: 18px; line-height: 1.8;">
+        Whether you're purchasing your first Dubai home or expanding a global portfolio, my job is to make the process clear, smooth, and profitable — every step of the way.
+      </p>
+    </div>
+  </section>
+
+  <!-- ROI Calculator Section -->
+  <section id="roi" class="section">
+    <div class="roi-container">
+      <h2>ROI Calculator</h2>
+      <form id="roi-form">
+        <div class="input-group">
+          <label>Property Price (AED)</label>
+          <input type="text" id="property-price" required inputmode="numeric" pattern="[0-9,]*" placeholder="e.g. 1,000,000">
+        </div>
+        <div class="input-group">
+          <label>Rental Income per Year (AED)</label>
+          <input type="text" id="rental-income" required inputmode="numeric" pattern="[0-9,]*" placeholder="e.g. 60,000">
+        </div>
+        <div class="input-group">
+          <label>Service Charge per Year (AED)</label>
+          <input type="text" id="service-charge" required inputmode="numeric" pattern="[0-9,]*" placeholder="e.g. 5,000">
+        </div>
+        <div class="input-group">
+          <label>Vacancy Rate (%) <span title="Annual percentage of vacancy time (e.g., time between tenants)">🛈</span></label>
+          <input type="number" id="vacancy-rate" value="5" min="0" max="100" step="0.1">
+        </div>
+        <div class="input-group">
+          <label>Expected Annual Rental Increase (%)</label>
+          <input type="number" id="rental-increase" min="0" max="100" step="0.1">
+        </div>
+        <div class="input-group" id="years-container" style="display:none">
+          <label>Number of Years to Project</label>
+          <input type="number" id="projection-years" min="1" max="50" step="1">
+        </div>
+        <button type="submit">Calculate</button>
+      </form>
+
+      <div id="roi-results" class="results"></div>
+    </div>
+  </section>
 
   <!-- Contact Section -->
   <section id="contact" class="section">
@@ -279,6 +393,86 @@
         sections.forEach(sec => sec.classList.remove("activeSection"));
         document.getElementById(target).classList.add("activeSection");
       });
+    });
+
+    // ROI Calculator related JS
+
+    // Binlik ayırıcı ekleyen fonksiyon
+    function formatNumber(n) {
+      return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+    // Nokta/virgül temizleyen fonksiyon (inputtan)
+    function cleanNumber(str) {
+      return str.replace(/,/g, '');
+    }
+
+    // Inputlara otomatik binlik ayırıcı ekleme
+    function addThousandSeparator(e) {
+      const input = e.target;
+      let caretPos = input.selectionStart;
+      const originalLength = input.value.length;
+
+      let clean = cleanNumber(input.value);
+      if (isNaN(clean)) {
+        clean = clean.replace(/[^\d]/g, '');
+      }
+      if (clean === '') {
+        input.value = '';
+        return;
+      }
+
+      input.value = formatNumber(clean);
+
+      const newLength = input.value.length;
+      caretPos += newLength - originalLength;
+      input.setSelectionRange(caretPos, caretPos);
+    }
+
+    ['property-price', 'rental-income', 'service-charge'].forEach(id => {
+      const el = document.getElementById(id);
+      el.addEventListener('input', addThousandSeparator);
+    });
+
+    document.getElementById("rental-increase").addEventListener("input", function () {
+      const showYears = this.value !== "" && !isNaN(parseFloat(this.value));
+      document.getElementById("years-container").style.display = showYears ? "block" : "none";
+    });
+
+    document.getElementById("roi-form").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const price = parseFloat(cleanNumber(document.getElementById("property-price").value));
+      const rent = parseFloat(cleanNumber(document.getElementById("rental-income").value));
+      const charge = parseFloat(cleanNumber(document.getElementById("service-charge").value));
+      const vacancyRate = parseFloat(document.getElementById("vacancy-rate").value || 0);
+      const rentalIncrease = parseFloat(document.getElementById("rental-increase").value || 0);
+      const projectionYears = parseInt(document.getElementById("projection-years").value || 0);
+
+      if (isNaN(price) || isNaN(rent) || isNaN(charge) || price === 0) {
+        alert("Please enter valid numbers for property price, rental income, and service charge.");
+        return;
+      }
+
+      const netAnnualIncome = rent * (1 - (vacancyRate / 100)) - charge;
+      const roi = (netAnnualIncome / price) * 100;
+
+      let resultsHtml = `<p><strong>Net Annual Income:</strong> AED ${formatNumber(netAnnualIncome.toFixed(0))}</p>`;
+      resultsHtml += `<p><strong>ROI:</strong> ${roi.toFixed(2)}%</p>`;
+
+      if (rentalIncrease && projectionYears) {
+        resultsHtml += `<h3>Projected Rental Income for Next ${projectionYears} Years:</h3>`;
+        let currentIncome = rent;
+        const year = new Date().getFullYear();
+        resultsHtml += '<ul>';
+        for (let i = 1; i <= projectionYears; i++) {
+          currentIncome *= (1 + rentalIncrease / 100);
+          let netIncome = currentIncome * (1 - (vacancyRate / 100)) - charge;
+          resultsHtml += `<li>${year + i}: AED ${formatNumber(netIncome.toFixed(0))}</li>`;
+        }
+        resultsHtml += '</ul>';
+      }
+
+      document.getElementById("roi-results").innerHTML = resultsHtml;
     });
   </script>
 
