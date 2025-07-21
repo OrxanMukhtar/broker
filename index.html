@@ -3,14 +3,13 @@
 
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KG5TNRLDP8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-KG5TNRLDP8');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KG5TNRLDP8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KG5TNRLDP8');
+  </script>
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -392,31 +391,14 @@
 
   <!-- Section Toggle Script -->
   <script>
-    const links = document.querySelectorAll("nav ul li a");
-    const sections = document.querySelectorAll(".section");
-
-    links.forEach(link => {
-      link.addEventListener("click", e => {
-        e.preventDefault();
-        const target = link.getAttribute("data-section");
-
-        sections.forEach(sec => sec.classList.remove("activeSection"));
-        document.getElementById(target).classList.add("activeSection");
-      });
-    });
-
-    // ROI Calculator related JS
-
-    // Binlik ayırıcı ekleyen fonksiyon
+    // Binlik ayırıcı fonksiyonları
     function formatNumber(n) {
       return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
-    // Nokta/virgül temizleyen fonksiyon (inputtan)
     function cleanNumber(str) {
       return str.replace(/,/g, '');
     }
 
-    // Inputlara otomatik binlik ayırıcı ekleme
     function addThousandSeparator(e) {
       const input = e.target;
       let caretPos = input.selectionStart;
@@ -448,6 +430,35 @@
       document.getElementById("years-container").style.display = showYears ? "block" : "none";
     });
 
+    // Menü linklerine tıklama ve GA event takip
+    const links = document.querySelectorAll("nav ul li a");
+    const sections = document.querySelectorAll(".section");
+
+    links.forEach(link => {
+      link.addEventListener("click", e => {
+        e.preventDefault();
+        const target = link.getAttribute("data-section");
+
+        sections.forEach(sec => sec.classList.remove("activeSection"));
+        document.getElementById(target).classList.add("activeSection");
+
+        // GA Menü tıklama event
+        if (window.gtag) {
+          gtag('event', 'menu_click', {
+            'event_category': 'navigation',
+            'event_label': target
+          });
+
+          // SPA sayfa görünümü bildirimi
+          gtag('config', 'G-KG5TNRLDP8', {
+            'page_path': '/' + target,
+            'page_title': target.charAt(0).toUpperCase() + target.slice(1)
+          });
+        }
+      });
+    });
+
+    // ROI form submit event
     document.getElementById("roi-form").addEventListener("submit", function (event) {
       event.preventDefault();
 
@@ -483,9 +494,17 @@
       }
 
       document.getElementById("roi-results").innerHTML = resultsHtml;
+
+      // GA ROI hesaplama event
+      if (window.gtag) {
+        gtag('event', 'roi_calculate', {
+          'event_category': 'form',
+          'value': roi.toFixed(2),
+          'currency': 'AED'
+        });
+      }
     });
   </script>
-
 </body>
 
 </html>
