@@ -36,11 +36,14 @@
   background-color: #0056b3;
 }
 
+.visible{
+    right: 90px !important;
+    bottom: 50px !important;
+}
 
 body {
   font-family: Arial, sans-serif;
   background-color: #f8f8f8;
-  padding: 30px;
   color: #333;
 }
 
