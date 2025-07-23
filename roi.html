@@ -1,184 +1,146 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fiyat Teklifi Al - Allahverdi Muxtarlı</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-    <section id="roi-calculator" class="roi-section">
-  <div class="roi-container">
-    <h2>ROI Calculator</h2>
-    <form id="roi-form">
-      <div class="input-group">
-        <label>Property Price (AED)</label>
-        <input type="text" id="property-price" required inputmode="numeric" pattern="[0-9,]*" placeholder="e.g. 1,000,000">
-      </div>
-      <div class="input-group">
-        <label>Rental Income per Year (AED)</label>
-        <input type="text" id="rental-income" required inputmode="numeric" pattern="[0-9,]*" placeholder="e.g. 60,000">
-      </div>
-      <div class="input-group">
-        <label>Service Charge per Year (AED)</label>
-        <input type="text" id="service-charge" required inputmode="numeric" pattern="[0-9,]*" placeholder="e.g. 5,000">
-      </div>
-      <div class="input-group">
-        <label>Vacancy Rate (%) <span title="Annual percentage of vacancy time (e.g., time between tenants)">🛈</span></label>
-        <input type="number" id="vacancy-rate" value="5" min="0" max="100" step="0.1">
-      </div>
-      <div class="input-group">
-        <label>Expected Annual Rental Increase (%)</label>
-        <input type="number" id="rental-increase" min="0" max="100" step="0.1">
-      </div>
-      <div class="input-group" id="years-container" style="display:none">
-        <label>Number of Years to Project</label>
-        <input type="number" id="projection-years" min="1" max="50" step="1">
-      </div>
-      <button type="submit">Calculate</button>
+  <div class="container">
+    <h1>Fiyat Teklifi Al</h1>
+    <form id="quote-form" action="https://formspree.io/f/mgvzaekd" method="POST">
+      <label>Adınız ve Soyadınız:
+        <input type="text" name="fullname" required>
+      </label>
+      <label>Telefon Numaranız:
+        <input type="tel" name="phone" required>
+      </label>
+      <label>Email:
+        <input type="email" name="email" required>
+      </label>
+      <label>Proje İsmi:
+        <input type="text" name="project_name">
+      </label>
+      <label>Fiyat Aralığınız:
+        <select name="price_range">
+          <option value="500K-1M">500K - 1M AED</option>
+          <option value="1M-2M">1M - 2M AED</option>
+          <option value="2M+">2M+ AED</option>
+        </select>
+      </label>
+      <label>Amacınız:
+        <select name="purpose">
+          <option value="investment">Yatırım</option>
+          <option value="living">Kendi kullanımım için</option>
+        </select>
+      </label>
+      <label>Kim olarak başvuruyorsunuz?
+        <select name="identity">
+          <option value="enduser">Müşteri (End User)</option>
+          <option value="broker">Broker</option>
+        </select>
+      </label>
+      <label>Ek Notlar:
+        <textarea name="notes" placeholder="İlave bir bilginiz varsa yazın..."></textarea>
+      </label>
+      <button type="submit">Teklif Al</button>
     </form>
-
-    <div id="roi-results" class="results"></div>
+    <div id="form-message" style="display: none;"></div>
   </div>
-</section>
-
+  
+<script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
 <script>
-  // Binlik ayırıcı ekleyen fonksiyon
-  function formatNumber(n) {
-    return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
-  // Nokta/virgül temizleyen fonksiyon (inputtan)
-  function cleanNumber(str) {
-    return str.replace(/,/g, '');
-  }
+  window.formbutton = window.formbutton || function () {
+    (formbutton.q = formbutton.q || []).push(arguments)
+  };
 
-  // Inputlara otomatik binlik ayırıcı ekleme
-  function addThousandSeparator(e) {
-    const input = e.target;
-    let caretPos = input.selectionStart;
-    const originalLength = input.value.length;
-
-    let clean = cleanNumber(input.value);
-    if (isNaN(clean)) {
-      clean = clean.replace(/[^\d]/g, '');
-    }
-    if (clean === '') {
-      input.value = '';
-      return;
-    }
-
-    input.value = formatNumber(clean);
-
-    const newLength = input.value.length;
-    caretPos += newLength - originalLength;
-    input.setSelectionRange(caretPos, caretPos);
-  }
-
-  // Binlik ayırıcı olayını inputlara ekle
-  ['property-price', 'rental-income', 'service-charge'].forEach(id => {
-    const el = document.getElementById(id);
-    el.addEventListener('input', addThousandSeparator);
-  });
-
-  document.getElementById("rental-increase").addEventListener("input", function () {
-    const showYears = this.value !== "" && !isNaN(parseFloat(this.value));
-    document.getElementById("years-container").style.display = showYears ? "block" : "none";
-  });
-
-  document.getElementById("roi-form").addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    const price = parseFloat(cleanNumber(document.getElementById("property-price").value));
-    const rent = parseFloat(cleanNumber(document.getElementById("rental-income").value));
-    const charge = parseFloat(cleanNumber(document.getElementById("service-charge").value));
-    const vacancyRate = parseFloat(document.getElementById("vacancy-rate").value || 0);
-    const rentalIncrease = parseFloat(document.getElementById("rental-increase").value || 0);
-    const projectionYears = parseInt(document.getElementById("projection-years").value || 0);
-
-    if (isNaN(price) || isNaN(rent) || isNaN(charge) || price === 0) {
-      alert("Please enter valid numbers for property price, rental income, and service charge.");
-      return;
-    }
-
-    const netAnnualIncome = rent * (1 - (vacancyRate / 100)) - charge;
-    const roi = (netAnnualIncome / price) * 100;
-
-    let resultsHtml = `<p><strong>Net Annual Income:</strong> AED ${formatNumber(netAnnualIncome.toFixed(0))}</p>`;
-    resultsHtml += `<p><strong>ROI:</strong> ${roi.toFixed(2)}%</p>`;
-
-    if (rentalIncrease && projectionYears) {
-      resultsHtml += `<h3>Projected Rental Income for Next ${projectionYears} Years:</h3>`;
-      let currentIncome = rent;
-      const year = new Date().getFullYear();
-      resultsHtml += '<ul>';
-      for (let i = 1; i <= projectionYears; i++) {
-        currentIncome *= (1 + rentalIncrease / 100);
-        let netIncome = currentIncome * (1 - (vacancyRate / 100)) - charge;
-        resultsHtml += `<li>${year + i}: AED ${formatNumber(netIncome.toFixed(0))}</li>`;
+  formbutton("create", {
+    action: "https://formspree.io/f/mgvzaekd",
+    title: "Fiyat Teklifi Al",
+    fields: [
+      {
+        type: "text",
+        label: "Ad Soyad:",
+        name: "name",
+        required: true,
+        placeholder: "Adınızı girin"
+      },
+      {
+        type: "email",
+        label: "Email:",
+        name: "email",
+        required: true,
+        placeholder: "email@adresiniz.com"
+      },
+      {
+        type: "tel",
+        label: "Telefon:",
+        name: "phone",
+        required: true,
+        placeholder: "+971..."
+      },
+      {
+        type: "text",
+        label: "Proje İsmi:",
+        name: "project",
+        required: true,
+        placeholder: "Örn: Sobha One"
+      },
+      {
+        type: "number",
+        label: "Fiyat Aralığı (AED):",
+        name: "price_range",
+        placeholder: "Örn: 1.500.000"
+      },
+      {
+        type: "text",
+        label: "Oda Sayısı:",
+        name: "room_count",
+        placeholder: "Örn: 2+1"
+      },
+      {
+        type: "select",
+        label: "Kullanıcı Türü:",
+        name: "user_type",
+        required: true,
+        options: [
+          { label: "Yatırımcı", value: "yatirimci" },
+          { label: "End User (Kendine ev alıyor)", value: "end_user" }
+        ]
+      },
+      {
+        type: "select",
+        label: "Rolünüz:",
+        name: "role",
+        required: true,
+        options: [
+          { label: "Broker", value: "broker" },
+          { label: "Müşteri", value: "musteri" }
+        ]
+      },
+      {
+        type: "textarea",
+        label: "Ek Notlar:",
+        name: "notes",
+        placeholder: "Bize iletmek istediğiniz bir not varsa yazın."
+      },
+      { type: "submit" }
+    ],
+    styles: {
+      title: {
+        backgroundColor: "#222",
+        fontSize: "18px"
+      },
+      button: {
+        backgroundColor: "#222",
+        color: "#fff",
+        fontSize: "16px"
       }
-      resultsHtml += '</ul>';
     }
-
-    document.getElementById("roi-results").innerHTML = resultsHtml;
   });
 </script>
 
-<style>
-  .roi-section {
-    background: #f7f7f7;
-    padding: 40px 20px;
-    font-family: Arial, sans-serif;
-  }
-  .roi-container {
-    max-width: 600px;
-    margin: 0 auto;
-    background: #fff;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  }
-  .input-group {
-    margin-bottom: 20px;
-  }
-  label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 6px;
-  }
-  input {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-  }
-  button {
-    background-color: #006ce4;
-    color: white;
-    padding: 12px 24px;
-    font-size: 16px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  button:hover {
-    background-color: #0053b3;
-  }
-  .results {
-    margin-top: 30px;
-    background: #e9f5ff;
-    padding: 20px;
-    border-radius: 8px;
-  }
-  .results p {
-    font-size: 16px;
-    margin-bottom: 12px;
-  }
-  .results ul {
-    padding-left: 20px;
-  }
-</style>
-
-    
+  <script src="script.js"></script>
 </body>
 </html>

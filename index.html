@@ -13,6 +13,8 @@
 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="style.css" />
   <title>Allahverdi Mukhtarli</title>
   <style>
     * {
@@ -266,6 +268,68 @@
     </ul>
   </nav>
 
+<!-- <form class="offer-form-section" id="quoteForm" action="https://formspree.io/f/mgvzaekd" method="POST">
+  <h2>Fiyat Teklifi Ver</h2>
+
+  <label>Adınız ve Soyadınız:<br>
+    <input type="text" name="full_name" required>
+  </label><br><br>
+
+  <label>Telefon Numaranız:<br>
+    <input type="tel" name="phone" required>
+  </label><br><br>
+
+  <label>Email Adresiniz:<br>
+    <input type="email" name="email" required>
+  </label><br><br>
+
+  <label>Proje Adı:<br>
+    <input type="text" name="project_name" required>
+  </label><br><br>
+
+  <label>Oda Sayısı:<br>
+    <select name="room_count" required>
+      <option value="">Seçiniz</option>
+      <option value="1+1">1+1</option>
+      <option value="2+1">2+1</option>
+      <option value="3+1">3+1</option>
+      <option value="4+1">4+1</option>
+      <option value="villa">Villa</option>
+    </select>
+  </label><br><br>
+
+  <label>Almak İstediğiniz Fiyat (AED):<br>
+    <input type="number" name="target_price" required>
+  </label><br><br>
+
+  <label>Fiyat Aralığınız (AED):<br>
+    <input type="text" name="price_range" placeholder="Örn: 1.5M - 1.7M">
+  </label><br><br>
+
+  <label>Alım Amacınız:<br>
+    <select name="user_type" required>
+      <option value="">Seçiniz</option>
+      <option value="end_user">Kendim oturmak için (End User)</option>
+      <option value="investor">Yatırım için (Investor)</option>
+    </select>
+  </label><br><br>
+
+  <label>Bu formu kim olarak dolduruyorsunuz?<br>
+    <select name="identity_type" required>
+      <option value="">Seçiniz</option>
+      <option value="buyer">Alıcı (Müşteri)</option>
+      <option value="broker">Aracı (Broker)</option>
+    </select>
+  </label><br><br>
+
+  <label>Ek Notlar:<br>
+    <textarea name="notes" rows="4" placeholder="Opsiyonel"></textarea>
+  </label><br><br>
+
+  <button type="submit">Gönder</button>
+  <p id="formStatus" style="margin-top: 10px;"></p>
+</form> -->
+
   <!-- Home Section -->
   <section id="home" class="section activeSection">
     <h2>Live Market News</h2>
@@ -505,7 +569,69 @@ Whether you are acquiring your first residence in Dubai or diversifying an inter
         });
       }
     });
+
+    document.getElementById('offerForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData.entries());
+
+    fetch('https://formspree.io/f/mgvzaekd', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json'
+      },
+      body: formData
+    })
+    .then(response => {
+      if (response.ok) {
+        alert("Teklif başarıyla gönderildi!");
+        document.getElementById('offerForm').reset();
+      } else {
+        alert("Bir sorun oluştu. Lütfen tekrar deneyin.");
+      }
+    });
+  });
   </script>
+  <script src="script.js"></script>
+
+
+<!-- Read the Formbutton docs at formspree.io/formbutton/docs. See more examples at codepen.io/formspree -->
+<script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
+<script>
+  /* paste this line in verbatim */
+  window.formbutton=window.formbutton||function(){(formbutton.q=formbutton.q||[]).push(arguments)};
+  /* customize formbutton below*/     
+  formbutton("create", {
+    action: "https://formspree.io/f/mldljprz",
+    title: "How can we help?",
+    fields: [
+      { 
+        type: "email", 
+        label: "Email:", 
+        name: "email",
+        required: true,
+        placeholder: "your@email.com"
+      },
+      {
+        type: "textarea",
+        label: "Message:",
+        name: "message",
+        placeholder: "What's on your mind?",
+      },
+      { type: "submit" }      
+    ],
+    styles: {
+      title: {
+        backgroundColor: "gray"
+      },
+      button: {
+        backgroundColor: "gray"
+      }
+      
+    }
+  });
+</script>
 </body>
 
 </html>
