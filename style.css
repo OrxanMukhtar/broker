@@ -101,3 +101,15 @@ button:hover {
 #formbutton-button {
     background-color: #0077ff !important;
 }
+
+#formbutton-modal {
+    max-height: 665px !important;
+}
+
+ textarea{
+    min-height: 3rem;
+}
+
+#formbutton-shim input {
+    background-color: red !important;
+}
