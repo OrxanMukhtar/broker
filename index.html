@@ -50,7 +50,7 @@
     }
 
     nav {
-      background-color: #20645e;
+      background-color: #0077ff;
       display: flex;
       justify-content: center;
       padding: 12px 0;
@@ -116,7 +116,7 @@
     }
 
     footer {
-      background-color: #20645e;
+      background-color: #0077ff;
       color: white;
       text-align: center;
       padding: 50px 10px;
@@ -255,7 +255,7 @@
 
   <header>
     <img src="./pictures/Allahverdi.png" alt="Profile Picture" />
-    <h1>Allahverdi Mukhtarli</h1>
+    <h1 id="nameUser">Allahverdi Mukhtarli</h1>
     <p>Property Investment Specialist in Dubai</p>
   </header>
 
@@ -606,29 +606,80 @@ Whether you are acquiring your first residence in Dubai or diversifying an inter
     action: "https://formspree.io/f/mldljprz",
     title: "How can we help?",
     fields: [
-      { 
-        type: "email", 
-        label: "Email:", 
+{
+        type: "text",
+        label: "Name",
+        name: "name",
+        required: true,
+        placeholder: "Name"
+      },
+      {
+        type: "email",
+        label: "Email:",
         name: "email",
         required: true,
-        placeholder: "your@email.com"
+        placeholder: "email@address.com"
+      },
+      {
+        type: "tel",
+        label: "Telefon:",
+        name: "phone",
+        required: true,
+        placeholder: "+971..."
+      },
+      {
+        type: "text",
+        label: "Project:",
+        name: "project",
+        required: true,
+        placeholder: "ex. Sobha One"
+      },
+      {
+        type: "number",
+        label: "Price max (AED):",
+        name: "price_range",
+        placeholder: "Örn: 1.500.000"
+      },
+      {
+        type: "text",
+        label: "Bedroom:",
+        name: "room_count",
+        placeholder: "2+1 or 1 bedroom"
+      },
+      {
+        type: "select",
+        label: "User type:",
+        name: "user_type",
+        required: true,
+        options: [
+          { label: "Investor", value: "Investor" },
+          { label: "End User", value: "end_user" }
+        ]
+      },
+      {
+        type: "select",
+        label: "You are:",
+        name: "role",
+        required: true,
+        options: [
+          { label: "Broker", value: "broker" },
+          { label: "Buyer", value: "Buyer" }
+        ]
       },
       {
         type: "textarea",
-        label: "Message:",
-        name: "message",
-        placeholder: "What's on your mind?",
-      },
-      { type: "submit" }      
+        label: "Notes:",
+        name: "notes",
+        placeholder: "Let me know if you have any specific requirements or questions"
+      },      { type: "submit" }      
     ],
     styles: {
       title: {
-        backgroundColor: "gray"
+        backgroundColor: "#0077ff"
       },
       button: {
-        backgroundColor: "gray"
-      }
-      
+        backgroundColor: "#0077ff"
+      }      
     }
   });
 </script>
