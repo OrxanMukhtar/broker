@@ -1,3 +1,270 @@
+/* style.css */
+
+/* Genel Reset ve Temel Ayarlar */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+}
+
+#nameUser {
+  color: white !important;
+}
+
+/* Header */
+header {
+  background-image: url('./pictures/background2.png');
+  background-size: cover;
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+header img {
+  width: 150px;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+  margin-top: 15px;
+  font-size: 2.2em;
+}
+
+/* Navigation */
+nav {
+  background-color: #0077ff;
+  display: flex;
+  justify-content: center;
+  padding: 12px 0;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+nav ul li a:hover {
+  color: #ffe259;
+}
+
+/* Section Genel */
+.section {
+  display: none;
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.activeSection {
+  display: block;
+}
+
+/* Home Section */
+#home {
+  background-color: #f9f9f9;
+}
+
+#home iframe {
+  width: 100%;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+/* Features List */
+.features-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.feature-box {
+  flex: 1 1 280px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.feature-box h4 {
+  margin-bottom: 10px;
+}
+
+/* About Section */
+#about {
+  background-color: #f9f9f9;
+  color: #1f2d2b;
+  padding: 60px 20px;
+}
+
+/* ROI Calculator */
+.roi-section,
+.roi-container {
+  max-width: 700px;
+  margin: 0 auto 60px auto;
+  background: #fff;
+  padding: 40px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+  cursor: default;
+}
+
+.input-group label span {
+  cursor: help;
+  border-bottom: 1px dotted #333;
+  font-weight: normal;
+  color: #555;
+}
+
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  margin-top: 6px;
+}
+
+button {
+  background-color: #20645e;
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #14493a;
+}
+
+/* ROI Results */
+.results {
+  margin-top: 30px;
+  background: #e9f5ff;
+  padding: 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.results ul {
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+/* Contact Section */
+#contact {
+  background-color: #f9f9f9;
+  padding: 40px 20px;
+  border-radius: 10px;
+}
+
+.contactUl {
+  list-style: none;
+  padding-left: 0;
+}
+
+.contactUl li {
+  margin: 10px 0;
+}
+
+.contactUl a {
+  text-decoration: none;
+  color: #20645e;
+  font-weight: 500;
+  font-size: 20px;
+  transition: color 0.3s;
+}
+
+.contactUl a:hover {
+  color: #14493a;
+}
+
+.contactUl img {
+  vertical-align: middle;
+  margin-right: 8px;
+  width: 25px;
+}
+
+/* Footer */
+footer {
+  background-color: #0077ff;
+  color: white;
+  text-align: center;
+  padding: 50px 10px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+/* Social Icons */
+.socials img {
+  width: 40px;
+  margin: 0 10px;
+  vertical-align: middle;
+  transition: transform 0.3s ease;
+}
+
+.socials img:hover {
+  transform: scale(1.1);
+}
+
+/* Sticky Buttons */
+.sticky-call,
+.sticky-whatsapp {
+  position: fixed;
+  left: 10px;
+  z-index: 9999;
+}
+
+.sticky-call {
+  bottom: 10px;
+}
+
+.sticky-whatsapp {
+  bottom: 90px;
+}
+
+.sticky-call img,
+.sticky-whatsapp img {
+  width: 60px;
+}
+
+/* Offer Form Section */
 .offer-form-section {
   max-width: 500px;
   margin: 0 auto;
@@ -30,92 +297,79 @@
   color: white;
   border: none;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 #offerForm button:hover {
   background-color: #0056b3;
 }
 
-.visible{
-    right: 90px !important;
-    bottom: 50px !important;
+.visible {
+  right: 90px !important;
+  bottom: 50px !important;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f8f8f8;
-  color: #333;
-}
-
-.container {
-  max-width: 600px;
-  margin: auto;
-  background: #fff;
-  padding: 25px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  border-radius: 10px;
-}
-
-h1 {
-  text-align: center;
-  color: #222;
-}
-
-#nameUser {
-    color: white !important;
-}
-.submitField {
-    background-color: #0077ff !important;
-    color: #0077ff !important;
-}
-
-form label {
-  display: block;
-  margin-bottom: 15px;
-}
-
-input, textarea, select {
-  width: 100%;
-  padding: 10px;
-  margin-top: 6px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-
-button {
-  width: 100%;
-  background-color: #0077ff;
-  color: white;
-  border: none;
-  padding: 12px;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #005fcc;
-}
-
-
+/* Formbutton */
 #formbutton-button {
-    background-color: #0077ff !important;
+  background-color: #0077ff !important;
 }
 
 #formbutton-modal {
-    max-height: 665px !important;
+  max-height: 665px !important;
 }
 
- textarea{
-    min-height: 3rem;
+textarea {
+  min-height: 3rem;
 }
 
 #formbutton-shim input {
-    background-color: red !important;
+  background-color: red !important;
 }
 
 .formbutton-widget form {
-  height: 500px !important; /* istediğin yüksekliği yaz */
+  height: 500px !important;
   max-height: 500px !important;
   overflow-y: auto;
+}
+
+/* Video Slider */
+
+.video-slider {
+  position: relative;
+  width: 100%;      /* full width */
+  height: 400px;
+  max-width: 560px; /* max 560px genişlik */
+  aspect-ratio: 16 / 9; /* 16:9 oranı */
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.video-slide iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: none;
+}
+
+
+.video-slide {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.video-slide.active {
+  display: block;
+}
+
+
+.video-slider-controls {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.video-slider-controls button {
+  padding: 8px 12px;
+  font-size: 18px;
+  cursor: pointer;
 }

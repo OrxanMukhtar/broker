@@ -2,259 +2,24 @@
 <html lang="en">
 
 <head>
-  <!-- Google tag (gtag.js) -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Allahverdi Mukhtarli</title>
+
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-KG5TNRLDP8"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-KG5TNRLDP8');
   </script>
 
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="style.css">
-  <title>Allahverdi Mukhtarli</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f5f7fa;
-      color: #333;
-    }
-
-    header {
-      /* background: linear-gradient(to right, #111, #222); */
-      background-image: url('./pictures/background2.png');
-      background-size: cover;
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
-    }
-
-    header img {
-      width: 150px;
-      border-radius: 50%;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-    }
-
-    header h1 {
-      margin-top: 15px;
-      font-size: 2.2em;
-    }
-
-    nav {
-      background-color: #0077ff;
-      display: flex;
-      justify-content: center;
-      padding: 12px 0;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 30px;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: #fff;
-      font-weight: 500;
-      transition: color 0.3s;
-      cursor: pointer;
-    }
-
-    nav ul li a:hover {
-      color: #ffe259;
-    }
-
-    .section {
-      display: none;
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .activeSection {
-      display: block;
-    }
-
-    #home {
-      background-color: #f9f9f9;
-    }
-
-    #home iframe {
-      width: 100%;
-      /* height: 250px; */
-      border-radius: 10px;
-      margin: 20px 0;
-    }
-
-    .features-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      margin-top: 20px;
-    }
-
-    .feature-box {
-      flex: 1 1 280px;
-      background: #fff;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .feature-box h4 {
-      margin-bottom: 10px;
-    }
-
-    footer {
-      background-color: #0077ff;
-      color: white;
-      text-align: center;
-      padding: 50px 10px;
-      border-top-left-radius: 30px;
-      border-top-right-radius: 30px;
-    }
-
-    .socials img {
-      width: 40px;
-      margin: 0 10px;
-      vertical-align: middle;
-      transition: transform 0.3s ease;
-    }
-
-    .socials img:hover {
-      transform: scale(1.1);
-    }
-
-    .sticky-call,
-    .sticky-whatsapp {
-      position: fixed;
-      bottom: 10px;
-      z-index: 9999;
-    }
-
-    .sticky-call {
-      left: 10px;
-    }
-
-    .sticky-whatsapp {
-      left: 10px;
-      bottom: 90px
-    }
-
-    .sticky-call img,
-    .sticky-whatsapp img {
-      width: 60px;
-    }
-
-    .contactUl a {
-      text-decoration: none;
-      color: #20645e;
-      font-weight: 500;
-      transition: color 0.3s;
-      font-size: 20px;
-    }
-
-    .contactUl img {
-      vertical-align: middle;
-      margin-right: 8px;
-      width: 25px;
-    }
-
-    #contact {
-      background-color: #f9f9f9;
-      padding: 40px 20px;
-      border-radius: 10px;
-      /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
-    }
-
-    /* ROI Calculator Styles */
-    .roi-section {
-      background: #f7f7f7;
-      padding: 40px 20px;
-      font-family: Arial, sans-serif;
-      max-width: 700px;
-      margin: 0 auto 60px auto;
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .roi-container {
-      width: 100%;
-    }
-
-    .input-group {
-      margin-bottom: 20px;
-    }
-
-    .input-group label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 6px;
-      cursor: default;
-    }
-
-    .input-group label span {
-      cursor: help;
-      border-bottom: 1px dotted #333;
-      font-weight: normal;
-      color: #555;
-    }
-
-    input[type="text"],
-    input[type="number"] {
-      width: 100%;
-      padding: 10px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      box-sizing: border-box;
-    }
-
-    button {
-      background-color: #20645e;
-      color: white;
-      padding: 12px 24px;
-      font-size: 16px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #14493a;
-    }
-
-    .results {
-      margin-top: 30px;
-      background: #e9f5ff;
-      padding: 20px;
-      border-radius: 8px;
-      font-size: 16px;
-      line-height: 1.6;
-    }
-
-    .results ul {
-      padding-left: 20px;
-      margin-top: 10px;
-    }
-  </style>
 </head>
 
 <body>
-
   <header>
     <img src="./pictures/Allahverdi.png" alt="Profile Picture" />
     <h1 id="nameUser">Allahverdi Mukhtarli</h1>
@@ -270,17 +35,36 @@
     </ul>
   </nav>
 
-
   <!-- Home Section -->
   <section id="home" class="section activeSection">
     <h2>Live Market News</h2>
     <iframe src="https://www.tradingview.com/embed-widget/ticker-tape/?locale=en" frameborder="0"></iframe>
 
-<h2 style="margin-top: 40px;">Latest Dubai Investment Insights</h2>
-<iframe width="560" height="315" 
-  src="https://www.youtube.com/embed/0odvKto3QGk?start=1&autoplay=1&mute=1" 
-  title="YouTube video player" frameborder="0" 
-  allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+<div class="video-slider">
+  <div class="video-slide active">
+    <iframe 
+      src="https://www.youtube.com/embed/7RfRXOgkcyc?autoplay=1&mute=1&controls=1" 
+      title="Video 1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen>
+    </iframe>
+  </div>
+  <div class="video-slide">
+    <iframe 
+      src="https://www.youtube.com/embed/0odvKto3QGk?autoplay=1&mute=1&controls=1" 
+      title="Video 2" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen>
+    </iframe>
+  </div>
+  <div class="video-slide">
+    <iframe 
+      src="https://www.youtube.com/embed/Eq_srGMsa7o?autoplay=1&mute=1&controls=1" 
+      title="Video 3" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+<div class="video-slider-controls">
+  <button onclick="prevSlide()">←</button>
+  <button onclick="nextSlide()">→</button>
+</div>
 
     <h2 style="margin-top: 40px;">Why Invest in Dubai?</h2>
     <div class="features-list">
@@ -308,18 +92,20 @@
   </section>
 
   <!-- About Section -->
-  <section class="section" id="about" style="padding: 60px 20px; background-color: #f9f9f9; color: #1f2d2b;">
-    <div style="max-width: 900px; margin: 0 auto; text-align: center;">
-      <h2 style="font-size: 36px; color: #2f8b83;">Who I Am</h2> <br><br>
-      <p style="font-size: 18px;">My name is <strong>Allahverdi Mukhtarli</strong> — a certified real estate investment consultant based in Dubai...</p>
-      <p style="font-size: 18px; line-height: 1.8; margin-bottom: 20px;">
-         In collaboration with <strong>EVR.AE</strong>, I provide comprehensive services encompassing personalized property selection, ROI-focused advisory, visa facilitation, and long-term investment strategy development.
-      </p>
-
-      <p style="font-size: 18px; line-height: 1.8;">
-Whether you are acquiring your first residence in Dubai or diversifying an international property portfolio, my objective is to ensure a transparent, efficient, and profitable process at every stage.      </p>
-    </div>
-  </section>
+<section class="section" id="about" style="padding: 60px 20px; background-color: #f9f9f9; color: #1f2d2b;">
+  <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+    <h2 style="font-size: 36px; color: #2f8b83;">Who I Am</h2><br><br>
+    <p style="font-size: 18px;">
+      My name is <strong>Allahverdi Mukhtarli</strong>, a certified real estate investment consultant based in Dubai. I specialize in helping clients make smart, profitable property investments.
+    </p>
+    <p style="font-size: 18px; line-height: 1.8; margin-bottom: 20px;">
+      In collaboration with <strong>EVR.AE</strong>, I offer comprehensive services including personalized property selection, ROI-focused advisory, visa facilitation, and long-term investment strategy planning.
+    </p>
+    <p style="font-size: 18px; line-height: 1.8;">
+      Whether you're buying your first home in Dubai or expanding an international portfolio, my goal is to provide a transparent, efficient, and rewarding investment experience at every step.
+    </p>
+  </div>
+</section>
 
   <!-- ROI Calculator Section -->
   <section id="roi" class="section">
@@ -328,18 +114,18 @@ Whether you are acquiring your first residence in Dubai or diversifying an inter
       <form id="roi-form">
         <div class="input-group">
           <label>Property Price (AED)</label>
-          <input type="text" id="property-price" required inputmode="numeric" pattern="[0-9,]*" placeholder="e.g. 1,000,000">
+          <input type="text" id="property-price" required inputmode="numeric" pattern="[0-9,]*">
         </div>
         <div class="input-group">
           <label>Rental Income per Year (AED)</label>
-          <input type="text" id="rental-income" required inputmode="numeric" pattern="[0-9,]*" placeholder="e.g. 60,000">
+          <input type="text" id="rental-income" required inputmode="numeric" pattern="[0-9,]*">
         </div>
         <div class="input-group">
           <label>Service Charge per Year (AED)</label>
-          <input type="text" id="service-charge" required inputmode="numeric" pattern="[0-9,]*" placeholder="e.g. 5,000">
+          <input type="text" id="service-charge" required inputmode="numeric" pattern="[0-9,]*">
         </div>
         <div class="input-group">
-          <label>Vacancy Rate (%) <span title="Annual percentage of vacancy time (e.g., time between tenants)">🛈</span></label>
+          <label>Vacancy Rate (%)</label>
           <input type="number" id="vacancy-rate" value="5" min="0" max="100" step="0.1">
         </div>
         <div class="input-group">
@@ -352,7 +138,6 @@ Whether you are acquiring your first residence in Dubai or diversifying an inter
         </div>
         <button type="submit">Calculate</button>
       </form>
-
       <div id="roi-results" class="results"></div>
     </div>
   </section>
@@ -360,254 +145,86 @@ Whether you are acquiring your first residence in Dubai or diversifying an inter
   <!-- Contact Section -->
   <section id="contact" class="section">
     <h2>Contact</h2>
-    <p>Reach out to me directly:</p>
-    <ul class="contactUl" style="list-style: none; padding-left: 0;">
-      <li style="margin: 10px 0;">
-        <img src="https://cdn-icons-png.flaticon.com/512/597/597177.png" width="20"
-          style="vertical-align: middle; margin-right: 8px;" />
-        <a href="tel:+971528526766">+971 52 852 6766</a>
-      </li>
-      <li style="margin: 10px 0;">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="20"
-          style="vertical-align: middle; margin-right: 8px;" />
-        <a href="https://wa.me/971528526766" target="_blank">WhatsApp</a>
-      </li>
-      <li style="margin: 10px 0;">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="20"
-          style="vertical-align: middle; margin-right: 8px;" />
-        <a href="https://www.instagram.com/a_mukhtarli/" target="_blank">Instagram</a>
-      </li>
-      <li style="margin: 10px 0;">
-        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" width="20"
-          style="vertical-align: middle; margin-right: 8px;" />
-        <a href="https://www.youtube.com/@allahverdimuxtarli" target="_blank">YouTube</a>
-      </li>
+    <ul class="contactUl">
+      <li><a href="tel:+971528526766"><img src="https://cdn-icons-png.flaticon.com/512/597/597177.png">+971 52 852 6766</a></li>
+      <li><a href="https://wa.me/971528526766" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">WhatsApp</a></li>
+      <li><a href="https://www.instagram.com/a_mukhtarli/" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">Instagram</a></li>
+      <li><a href="https://www.youtube.com/@allahverdimuxtarli" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png">YouTube</a></li>
     </ul>
-
   </section>
 
+  <!-- Footer -->
   <footer>
-    <p style="margin-top: 10px;">© 2025 Mukhtarli Web.<br> All rights reserved.</p>
+    <p>© 2025 Mukhtarli Web. All rights reserved.</p>
   </footer>
 
   <!-- Sticky Buttons -->
   <a class="sticky-call" href="tel:+971528526766"><img src="./pictures/callicon.png" alt="Call"></a>
-  <a class="sticky-whatsapp" href="https://wa.me/971528526766" target="_blank"><img src="./pictures/wpicon.png"
-      alt="WhatsApp"></a>
+  <a class="sticky-whatsapp" href="https://wa.me/971528526766" target="_blank"><img src="./pictures/wpicon.png" alt="WhatsApp"></a>
 
-  <!-- Section Toggle Script -->
-  <script>
-    // Binlik ayırıcı fonksiyonları
-    function formatNumber(n) {
-      return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-    }
-    function cleanNumber(str) {
-      return str.replace(/,/g, '');
-    }
-
-    function addThousandSeparator(e) {
-      const input = e.target;
-      let caretPos = input.selectionStart;
-      const originalLength = input.value.length;
-
-      let clean = cleanNumber(input.value);
-      if (isNaN(clean)) {
-        clean = clean.replace(/[^\d]/g, '');
-      }
-      if (clean === '') {
-        input.value = '';
-        return;
-      }
-
-      input.value = formatNumber(clean);
-
-      const newLength = input.value.length;
-      caretPos += newLength - originalLength;
-      input.setSelectionRange(caretPos, caretPos);
-    }
-
-    ['property-price', 'rental-income', 'service-charge'].forEach(id => {
-      const el = document.getElementById(id);
-      el.addEventListener('input', addThousandSeparator);
-    });
-
-    document.getElementById("rental-increase").addEventListener("input", function () {
-      const showYears = this.value !== "" && !isNaN(parseFloat(this.value));
-      document.getElementById("years-container").style.display = showYears ? "block" : "none";
-    });
-
-    // Menü linklerine tıklama ve GA event takip
-    const links = document.querySelectorAll("nav ul li a");
-    const sections = document.querySelectorAll(".section");
-
-    links.forEach(link => {
-      link.addEventListener("click", e => {
-        e.preventDefault();
-        const target = link.getAttribute("data-section");
-
-        sections.forEach(sec => sec.classList.remove("activeSection"));
-        document.getElementById(target).classList.add("activeSection");
-
-        // GA Menü tıklama event
-        if (window.gtag) {
-          gtag('event', 'menu_click', {
-            'event_category': 'navigation',
-            'event_label': target
-          });
-
-          // SPA sayfa görünümü bildirimi
-          gtag('config', 'G-KG5TNRLDP8', {
-            'page_path': '/' + target,
-            'page_title': target.charAt(0).toUpperCase() + target.slice(1)
-          });
-        }
-      });
-    });
-
-    // ROI form submit event
-    document.getElementById("roi-form").addEventListener("submit", function (event) {
-      event.preventDefault();
-
-      const price = parseFloat(cleanNumber(document.getElementById("property-price").value));
-      const rent = parseFloat(cleanNumber(document.getElementById("rental-income").value));
-      const charge = parseFloat(cleanNumber(document.getElementById("service-charge").value));
-      const vacancyRate = parseFloat(document.getElementById("vacancy-rate").value || 0);
-      const rentalIncrease = parseFloat(document.getElementById("rental-increase").value || 0);
-      const projectionYears = parseInt(document.getElementById("projection-years").value || 0);
-
-      if (isNaN(price) || isNaN(rent) || isNaN(charge) || price === 0) {
-        alert("Please enter valid numbers for property price, rental income, and service charge.");
-        return;
-      }
-
-      const netAnnualIncome = rent * (1 - (vacancyRate / 100)) - charge;
-      const roi = (netAnnualIncome / price) * 100;
-
-      let resultsHtml = `<p><strong>Net Annual Income:</strong> AED ${formatNumber(netAnnualIncome.toFixed(0))}</p>`;
-      resultsHtml += `<p><strong>ROI:</strong> ${roi.toFixed(2)}%</p>`;
-
-      if (rentalIncrease && projectionYears) {
-        resultsHtml += `<h3>Projected Rental Income for Next ${projectionYears} Years:</h3>`;
-        let currentIncome = rent;
-        const year = new Date().getFullYear();
-        resultsHtml += '<ul>';
-        for (let i = 1; i <= projectionYears; i++) {
-          currentIncome *= (1 + rentalIncrease / 100);
-          let netIncome = currentIncome * (1 - (vacancyRate / 100)) - charge;
-          resultsHtml += `<li>${year + i}: AED ${formatNumber(netIncome.toFixed(0))}</li>`;
-        }
-        resultsHtml += '</ul>';
-      }
-
-      document.getElementById("roi-results").innerHTML = resultsHtml;
-
-      // GA ROI hesaplama event
-      if (window.gtag) {
-        gtag('event', 'roi_calculate', {
-          'event_category': 'form',
-          'value': roi.toFixed(2),
-          'currency': 'AED'
-        });
-      }
-    });
-
-    document.getElementById('offerForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const formData = new FormData(this);
-    const data = Object.fromEntries(formData.entries());
-
-    fetch('https://formspree.io/f/mgvzaekd', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json'
-      },
-      body: formData
-    })
-    .then(response => {
-      if (response.ok) {
-        alert("Teklif başarıyla gönderildi!");
-        document.getElementById('offerForm').reset();
-      } else {
-        alert("Bir sorun oluştu. Lütfen tekrar deneyin.");
-      }
-    });
-  });
-  </script>
-  <script src="script.js"></script>
-
-
-<!-- Read the Formbutton docs at formspree.io/formbutton/docs. See more examples at codepen.io/formspree -->
+  <!-- Scripts -->
+<!-- Formbutton Script -->
 <script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
 <script>
-  /* paste this line in verbatim */
   window.formbutton=window.formbutton||function(){(formbutton.q=formbutton.q||[]).push(arguments)};
-  /* customize formbutton below*/     
-  formbutton("create", {
-    action: "https://formspree.io/f/mldljprz",
-    title: "How can we help?",
-    fields: [
-{
-        type: "text",
-        label: "Name",
-        name: "name",
-        required: true,
-        placeholder: "Name"
-      },
-      {
-        type: "number",
-        label: "Telefon:",
-        name: "phone",
-        required: true,
-        placeholder: "+971..."
-      },
-      {
-        type: "text",
-        label: "Project:",
-        name: "project",
-        required: true,
-        placeholder: "ex. Sobha One"
-      },
-      {
-        type: "number",
-        label: "Price max (AED):",
-        name: "price_range",
-        placeholder: "ex: 1.500.000"
-      },
-      {
-        type: "text",
-        label: "Bedroom:",
-        name: "room_count",
-        placeholder: "2+1 or 1 bedroom"
-      },
-      {
-        type: "select",
-        label: "User type:",
-        name: "user_type",
-        required: true,
-        options: [
-          { label: "Investor", value: "Investor" },
-          { label: "End User", value: "end_user" },
-          { label: "Broker", value: "broker" },
-        ]
-      },
-      {
-        type: "textarea",
-        label: "Notes:",
-        name: "notes",
-        placeholder: "Specific requirements"
-      },      { type: "submit" }      
-    ],
-    styles: {
-      title: {
-        backgroundColor: "#0077ff"
-      },
-      button: {
-        backgroundColor: "#0077ff"
-      }      
+formbutton("create", {
+  action: "https://formspree.io/f/mldljprz",
+  title: "How can we help?",
+  fields: [
+    { 
+      type: "email", 
+      label: "Email:", 
+      name: "email",
+      required: true,
+      placeholder: "your@email.com"
+    },
+    {
+      type: "text",
+      label: "Project Name:",
+      name: "project",
+      placeholder: "ex. Sobha One",
+      required: false
+    },
+    {
+      type: "number",
+      label: "Max Price (AED):",
+      name: "price_range",
+      placeholder: "e.g. 1,500,000",
+      required: false
+    },
+    {
+      type: "text",
+      label: "Bedrooms:",
+      name: "room_count",
+      placeholder: "e.g. 2+1 or 1 bedroom",
+      required: false
+    },
+    {
+      type: "number",
+      label: "WhatsApp Number:",
+      name: "whatsapp",
+      placeholder: "+971 XX XXX XXXX",
+      required: false
+    },
+    {
+      type: "textarea",
+      label: "Message:",
+      name: "message",
+      placeholder: "What's on your mind?",
+      required: false
+    },
+    { type: "submit" }
+  ],
+  styles: {
+    title: {
+      backgroundColor: "gray"
+    },
+    button: {
+      backgroundColor: "gray"
     }
-  });
+  }
+});
 </script>
+  <script src="script.js"></script>
 </body>
-
 </html>
