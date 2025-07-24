@@ -113,3 +113,9 @@ button:hover {
 #formbutton-shim input {
     background-color: red !important;
 }
+
+.formbutton-widget form {
+  height: 500px !important; /* istediğin yüksekliği yaz */
+  max-height: 500px !important;
+  overflow-y: auto;
+}
