@@ -19,8 +19,9 @@ body {
 
 /* Header */
 header {
-  background-image: url('./pictures/background2.png');
+  background-image: url('./pictures/background3.jpg');
   background-size: cover;
+  background-position: top;
   color: white;
   text-align: center;
   padding: 40px 20px;
@@ -230,6 +231,10 @@ footer {
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
 }
+.instaClass {
+    color: #ffe259;
+    text-decoration: none;
+}
 
 /* Social Icons */
 .socials img {
@@ -372,4 +377,15 @@ textarea {
   padding: 8px 12px;
   font-size: 18px;
   cursor: pointer;
+}
+
+
+
+
+
+
+#avgPrice {
+  font-size: 1.2rem;
+  color: #20645e;
+  margin: 20px 0;
 }
