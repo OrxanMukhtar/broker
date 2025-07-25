@@ -155,3 +155,52 @@ async function fetchAvgPrice() {
 }
 
 fetchAvgPrice();
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const doorSound = document.getElementById('doorSound');
+  const clickSound = document.getElementById('clickSound');
+
+  // İlk kullanıcı etkileşiminde sesleri "hazırla"
+  let audioUnlocked = false;
+  function unlockAudio() {
+    if (!audioUnlocked) {
+      doorSound.play().then(() => {
+        doorSound.pause();
+        doorSound.currentTime = 0;
+      }).catch(() => {});
+      
+      clickSound.play().then(() => {
+        clickSound.pause();
+        clickSound.currentTime = 0;
+      }).catch(() => {});
+
+      audioUnlocked = true;
+    }
+  }
+  document.body.addEventListener("click", unlockAudio, { once: true });
+
+  // Scroll başında sadece 1 kez çalsın
+  let doorPlayed = false;
+  window.addEventListener('scroll', () => {
+    if (!doorPlayed && audioUnlocked) {
+      doorSound.currentTime = 0;
+      doorSound.play().catch((e) => console.log("Scroll sound blocked:", e));
+      doorPlayed = true;
+    }
+  });
+
+  // Bütün buton ve linklerde tıklama sesi
+  const clickableElements = document.querySelectorAll('button, a');
+
+  clickableElements.forEach(el => {
+    el.addEventListener('click', () => {
+      clickSound.currentTime = 0;
+      clickSound.play().catch((e) => console.log("Click sound blocked:", e));
+    });
+  });
+});
+

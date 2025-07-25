@@ -405,3 +405,25 @@ textarea {
 
 
 
+#about h3 {
+    font-size: 1.5rem;
+    color: #29857e;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 400;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    text-transform: none;
+    font-style: italic;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-weight: 300;
+    background-color:  #d8edff;
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+    text-shadow:    1px 1px 2px rgba(0, 0, 0, 0.1);         
+}
+
