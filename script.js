@@ -184,15 +184,19 @@ document.addEventListener('DOMContentLoaded', () => {
   document.body.addEventListener("click", unlockAudio, { once: true });
 
   // Scroll başında sadece 1 kez çalsın
-  let doorPlayed = false;
-  window.addEventListener('scroll', () => {
-    if (!doorPlayed && audioUnlocked) {
-      doorSound.currentTime = 0;
-      doorSound.play().catch((e) => console.log("Scroll sound blocked:", e));
-      doorPlayed = true;
-    }
-  });
+let scrollTimeout;
+window.addEventListener('scroll', () => {
+  if (audioUnlocked) {
+    if (scrollTimeout) clearTimeout(scrollTimeout);
+    doorSound.currentTime = 0;
+    doorSound.play().catch((e) => console.log("Scroll sound blocked:", e));
 
+    // 300ms sonra tekrar scroll için hazır olur
+    scrollTimeout = setTimeout(() => {
+      scrollTimeout = null;
+    }, 300);
+  }
+});
   // Bütün buton ve linklerde tıklama sesi
   const clickableElements = document.querySelectorAll('button, a');
 
