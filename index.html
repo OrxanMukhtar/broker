@@ -41,37 +41,34 @@
     <iframe src="https://www.tradingview.com/embed-widget/ticker-tape/?locale=en" frameborder="0"></iframe>
 
 
-<div id="avgPrice">Loading current avg sales price...</div>
-<!-- <script src="script.js"></script> -->
+    <div id="avgPrice">Loading current avg sales price...</div>
+    <!-- <script src="script.js"></script> -->
 
 
 
 
-<div class="video-slider">
-  <div class="video-slide active">
-    <iframe 
-      src="https://www.youtube.com/embed/7RfRXOgkcyc?autoplay=1&mute=1&controls=1" 
-      title="Video 1" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen>
-    </iframe>
-  </div>
-  <div class="video-slide">
-    <iframe 
-      src="https://www.youtube.com/embed/0odvKto3QGk?autoplay=1&mute=1&controls=1" 
-      title="Video 2" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen>
-    </iframe>
-  </div>
-  <div class="video-slide">
-    <iframe 
-      src="https://www.youtube.com/embed/Eq_srGMsa7o?autoplay=1&mute=1&controls=1" 
-      title="Video 3" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen>
-    </iframe>
-  </div>
-</div>
+    <div class="video-slider">
+      <div class="video-slide active">
+        <iframe src="https://www.youtube.com/embed/7RfRXOgkcyc?autoplay=1&mute=1&controls=1" title="Video 1"
+          allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-slide">
+        <iframe src="https://www.youtube.com/embed/0odvKto3QGk?autoplay=1&mute=1&controls=1" title="Video 2"
+          allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-slide">
+        <iframe src="https://www.youtube.com/embed/Eq_srGMsa7o?autoplay=1&mute=1&controls=1" title="Video 3"
+          allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen>
+        </iframe>
+      </div>
+    </div>
 
-<div class="video-slider-controls">
-  <button onclick="prevSlide()" id="prevSlideBtn" aria-label="Previous video">‹ Prev</button>
-  <button onclick="nextSlide()" id="nextSlideBtn" aria-label="Next video">Next ›</button>
-</div>
+    <div class="video-slider-controls">
+      <button onclick="prevSlide()" id="prevSlideBtn" aria-label="Previous video">‹ Prev</button>
+      <button onclick="nextSlide()" id="nextSlideBtn" aria-label="Next video">Next ›</button>
+    </div>
 
     <h2 style="margin-top: 40px;">Why Invest in Dubai?</h2>
     <div class="features-list">
@@ -99,20 +96,23 @@
   </section>
 
   <!-- About Section -->
-<section class="section" id="about" style="padding: 60px 20px; background-color: #f9f9f9; color: #1f2d2b;">
-  <div style="max-width: 900px; margin: 0 auto; text-align: center;">
-    <h2 style="font-size: 36px; color: #2f8b83;">Who I Am</h2><br><br>
-    <p style="font-size: 18px;">
-      My name is <strong>Allahverdi Mukhtarli</strong>, a certified real estate investment consultant based in Dubai. I specialize in helping clients make smart, profitable property investments.
-    </p>
-    <p style="font-size: 18px; line-height: 1.8; margin-bottom: 20px;">
-      In collaboration with <strong>EVR.AE</strong>, I offer comprehensive services including personalized property selection, ROI-focused advisory, visa facilitation, and long-term investment strategy planning.
-    </p>
-    <p style="font-size: 18px; line-height: 1.8;">
-      Whether you're buying your first home in Dubai or expanding an international portfolio, my goal is to provide a transparent, efficient, and rewarding investment experience at every step.
-    </p>
-  </div>
-</section>
+  <section class="section" id="about" style="padding: 60px 20px; background-color: #f9f9f9; color: #1f2d2b;">
+    <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+      <h2 style="font-size: 36px; color: #2f8b83;">Who I Am</h2><br><br>
+      <p style="font-size: 18px;">
+        My name is <strong>Allahverdi Mukhtarli</strong>, a certified real estate investment consultant based in Dubai.
+        I specialize in helping clients make smart, profitable property investments.
+      </p>
+      <p style="font-size: 18px; line-height: 1.8; margin-bottom: 20px;">
+        In collaboration with <strong>EVR.AE</strong>, I offer comprehensive services including personalized property
+        selection, ROI-focused advisory, visa facilitation, and long-term investment strategy planning.
+      </p>
+      <p style="font-size: 18px; line-height: 1.8;">
+        Whether you're buying your first home in Dubai or expanding an international portfolio, my goal is to provide a
+        transparent, efficient, and rewarding investment experience at every step.
+      </p>
+    </div>
+  </section>
 
   <!-- ROI Calculator Section -->
   <section id="roi" class="section">
@@ -143,7 +143,10 @@
           <label>Number of Years to Project</label>
           <input type="number" id="projection-years" min="1" max="50" step="1">
         </div>
-        <button type="submit">Calculate</button>
+        <button type="submit" onclick="gtag('event', 'roi_submit', { 
+  event_category: 'roi', 
+  event_label: 'submit' 
+})">Calculate</button>
       </form>
       <div id="roi-results" class="results"></div>
     </div>
@@ -153,85 +156,105 @@
   <section id="contact" class="section">
     <h2>Contact</h2>
     <ul class="contactUl">
-      <li><a href="tel:+971528526766"><img src="https://cdn-icons-png.flaticon.com/512/597/597177.png">+971 52 852 6766</a></li>
-      <li><a href="https://wa.me/971528526766" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">WhatsApp</a></li>
-      <li><a href="https://www.instagram.com/a_mukhtarli/" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">Instagram</a></li>
-      <li><a href="https://www.youtube.com/@allahverdimuxtarli" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png">YouTube</a></li>
+      <li><a href="tel:+971528526766" onclick="gtag('event', 'call_click', {
+  event_category: 'contact',
+  event_label: 'phone'
+})"><img src="https://cdn-icons-png.flaticon.com/512/597/597177.png">+971 52 852 6766</a></li>
+      <li><a href="https://wa.me/971528526766" onclick="gtag('event', 'whatsapp_click', {
+  event_category: 'contact',
+  event_label: 'whatsapp'
+})" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">WhatsApp</a></li>
+      <li><a href="https://www.instagram.com/a_mukhtarli/" onclick="gtag('event', 'instagram_click', {
+  event_category: 'social',
+  event_label: 'instagram'
+})" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">Instagram</a></li>
+      <li><a href="https://www.youtube.com/@allahverdimuxtarli" onclick="gtag('event', 'youtube_click', {
+  event_category: 'social',
+  event_label: 'youtube'
+})" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png">YouTube</a></li>
     </ul>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 <a class="instaClass" href="https://www.instagram.com/a_mukhtarli/" target="_blank">Mukhtarli Web.</a> <br> All rights reserved.</p>
+    <p>© 2025 <a class="instaClass" href="https://www.instagram.com/a_mukhtarli/" target="_blank">Mukhtarli Web.</a>
+      <br> All rights reserved.</p>
   </footer>
 
   <!-- Sticky Buttons -->
-  <a class="sticky-call" href="tel:+971528526766"><img src="./pictures/callicon.png" alt="Call"></a>
-  <a class="sticky-whatsapp" href="https://wa.me/971528526766" target="_blank"><img src="./pictures/wpicon.png" alt="WhatsApp"></a>
+  <a class="sticky-call" href="tel:+971528526766" onclick="gtag('event', 'call_click', {
+  event_category: 'contact',
+  event_label: 'phone'
+})"><img src="./pictures/callicon.png" alt="Call"></a>
+  <a class="sticky-whatsapp" href="https://wa.me/971528526766" onclick="gtag('event', 'whatsapp_click', {
+  event_category: 'contact',
+  event_label: 'whatsapp'
+})" target="_blank"><img src="./pictures/wpicon.png" alt="WhatsApp"></a>
 
   <!-- Scripts -->
-<!-- Formbutton Script -->
-<script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
-<script>
-  window.formbutton=window.formbutton||function(){(formbutton.q=formbutton.q||[]).push(arguments)};
-formbutton("create", {
-  action: "https://formspree.io/f/mldljprz",
-  title: "How can we help?",
-  fields: [
-    { 
-      type: "email", 
-      label: "Email:", 
-      name: "email",
-      required: true,
-      placeholder: "your@email.com"
-    },
-    {
-      type: "text",
-      label: "Project Name:",
-      name: "project",
-      placeholder: "ex. Sobha One",
-      required: false
-    },
-    {
-      type: "number",
-      label: "Max Price (AED):",
-      name: "price_range",
-      placeholder: "e.g. 1,500,000",
-      required: false
-    },
-    {
-      type: "text",
-      label: "Bedrooms:",
-      name: "room_count",
-      placeholder: "e.g. 2+1 or 1 bedroom",
-      required: false
-    },
-    {
-      type: "number",
-      label: "WhatsApp Number:",
-      name: "whatsapp",
-      placeholder: "+971 XX XXX XXXX",
-      required: false
-    },
-    {
-      type: "textarea",
-      label: "Message:",
-      name: "message",
-      placeholder: "What's on your mind?",
-      required: false
-    },
-    { type: "submit" }
-  ],
-  styles: {
-    title: {
-      backgroundColor: "#0077ff"
-    },
-    button: {
-      backgroundColor: "#0077ff"
-    }
-  }
-});
-</script>
+  <!-- Formbutton Script -->
+  <script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
+  <script>
+    window.formbutton = window.formbutton || function () { (formbutton.q = formbutton.q || []).push(arguments) };
+    formbutton("create", {
+      action: "https://formspree.io/f/mldljprz",
+      title: "How can we help?",
+      fields: [
+        {
+          type: "email",
+          label: "Email:",
+          name: "email",
+          required: true,
+          placeholder: "your@email.com"
+        },
+        {
+          type: "text",
+          label: "Project Name:",
+          name: "project",
+          placeholder: "ex. Sobha One",
+          required: false
+        },
+        {
+          type: "number",
+          label: "Max Price (AED):",
+          name: "price_range",
+          placeholder: "e.g. 1,500,000",
+          required: false
+        },
+        {
+          type: "text",
+          label: "Bedrooms:",
+          name: "room_count",
+          placeholder: "e.g. 2+1 or 1 bedroom",
+          required: false
+        },
+        {
+          type: "number",
+          label: "WhatsApp Number:",
+          name: "whatsapp",
+          placeholder: "+971 XX XXX XXXX",
+          required: false
+        },
+        {
+          type: "textarea",
+          label: "Message:",
+          name: "message",
+          placeholder: "What's on your mind?",
+          required: false
+        },
+        { type: "submit" }
+      ],
+      styles: {
+        title: {
+          backgroundColor: "#0077ff"
+        },
+        button: {
+          backgroundColor: "#0077ff"
+        }
+      }
+    });
+  </script>
   <script src="script.js"></script>
 </body>
+
 </html>
