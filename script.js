@@ -161,7 +161,7 @@ fetchAvgPrice();
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  const doorSound = document.getElementById('doorSound');
+  // const doorSound = document.getElementById('doorSound');
   const clickSound = document.getElementById('clickSound');
 
   // İlk kullanıcı etkileşiminde sesleri "hazırla"
@@ -184,19 +184,20 @@ document.addEventListener('DOMContentLoaded', () => {
   document.body.addEventListener("click", unlockAudio, { once: true });
 
   // Scroll başında sadece 1 kez çalsın
-let scrollTimeout;
-window.addEventListener('scroll', () => {
-  if (audioUnlocked) {
-    if (scrollTimeout) clearTimeout(scrollTimeout);
-    doorSound.currentTime = 0;
-    doorSound.play().catch((e) => console.log("Scroll sound blocked:", e));
+// let scrollTimeout;
+// window.addEventListener('scroll', () => {
+//   if (audioUnlocked) {
+//     if (scrollTimeout) clearTimeout(scrollTimeout);
+//     doorSound.currentTime = 0;
+//     doorSound.play().catch((e) => console.log("Scroll sound blocked:", e));
 
-    // 300ms sonra tekrar scroll için hazır olur
-    scrollTimeout = setTimeout(() => {
-      scrollTimeout = null;
-    }, 300);
-  }
-});
+//     // 300ms sonra tekrar scroll için hazır olur
+//     scrollTimeout = setTimeout(() => {
+//       scrollTimeout = null;
+//     }, 300);
+//   }
+// });
+
   // Bütün buton ve linklerde tıklama sesi
   const clickableElements = document.querySelectorAll('button, a');
 
@@ -262,14 +263,69 @@ function calculate() {
   const azn = sqmPriceAED * exchangeRates.AZN;
   const tryy = sqmPriceAED * exchangeRates.TRY;
 
-  document.getElementById('result').innerHTML = `
-    <p>Price per m<sup>2</sup>:</p>
-    <strong>${sqmPriceAED.toFixed(2)} AED</strong><br><br>
-    ${usd.toFixed(2)} USD<br>
-    ${eur.toFixed(2)} EUR<br>
-    ${azn.toFixed(2)} AZN<br>
-    ${tryy.toFixed(2)} TRY
-  `;
+  function formatNumber(num, digits = 2) {
+  return num.toLocaleString('en-US', { minimumFractionDigits: digits, maximumFractionDigits: digits });
 }
 
+document.getElementById('result').innerHTML = `
+  <p class="grey">Price per m<sup>2</sup>:</p>
+  <strong>${formatNumber(sqmPriceAED)} <p class="cursP">AED</p></strong><br><br>
+  ${formatNumber(usd)} <p class="cursP">USD</p><br>
+  ${formatNumber(eur)} <p class="cursP">EUR</p><br>
+  ${formatNumber(azn)} <p class="cursP">AZN</p><br>
+  ${formatNumber(tryy)} <p class="cursP">TRY</p>
+`;}
+
 window.addEventListener('DOMContentLoaded', fetchRates);
+
+
+
+
+
+
+  const ctx = document.getElementById('priceTrendChart').getContext('2d');
+
+  const priceTrendChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'], // Aylar
+      datasets: [{
+        label: '1 sqft (AED)',
+        data: [1150, 1170, 1165, 1185, 1190, 1205], // Nümunə qiymətlər
+        borderColor: '#4F46E5',
+        backgroundColor: 'rgba(79, 70, 229, 0.1)',
+        borderWidth: 2,
+        fill: true,
+        tension: 0.3, // eğri çizgi
+        pointRadius: 5,
+        pointBackgroundColor: '#4F46E5'
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              return `${context.parsed.y} AED`;
+            }
+          }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: false,
+          title: {
+            display: true,
+            text: 'Fiyat (AED)'
+          }
+        },
+        x: {
+          title: {
+            display: true,
+            text: 'Aylar'
+          }
+        }
+      }
+    }
+  });

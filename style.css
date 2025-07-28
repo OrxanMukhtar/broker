@@ -402,7 +402,18 @@ textarea {
   margin: 20px 0;
 }
 
+.cursP {
+  color: rgb(92, 92, 162);
+  font-weight: italic;
+  font-size: 14px;
+  display: inline;
+}
 
+.grey {
+  color: rgb(92, 92, 162);
+  font-weight: 500;
+  font-size: 1.2rem;
+}
 
 
 #about h3 {
@@ -497,10 +508,10 @@ button:hover {
 }
 
 .resultStyle {
-  color: rgb(92, 92, 92);
+  color: #333;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 1.2rem;
-  background-color: #f0f0f0;
+  background: #E9F5FF !important;
   padding: 15px;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
