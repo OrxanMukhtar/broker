@@ -229,11 +229,11 @@ async function fetchRates() {
     exchangeRates = data.conversion_rates;
 
     const rateText = `
-      Cari valyuta kursları (1 AED): 
+      Today (1 AED): 
       ${exchangeRates.USD?.toFixed(3) || "?"} USD, 
       ${exchangeRates.EUR?.toFixed(3) || "?"} EUR, 
-      ${exchangeRates.AZN?.toFixed(2) || "?"} AZN
-      ${exchangeRates.TRY?.toFixed(2) || "?"} TRY, 
+      ${exchangeRates.AZN?.toFixed(2) || "?"} AZN,
+      ${exchangeRates.TRY?.toFixed(2) || "?"} TRY 
     `;
     document.getElementById("rates").innerText = rateText;
 
@@ -247,12 +247,12 @@ function calculate() {
   const sqftPrice = parseFloat(document.getElementById('sqftPrice').value);
 
   if (isNaN(sqftPrice)) {
-    document.getElementById('result').innerText = "Zəhmət olmasa düzgün ədədi daxil edin.";
+    document.getElementById('result').innerText = "Wrong input.";
     return;
   }
 
   if (!exchangeRates || !exchangeRates.USD) {
-    document.getElementById('result').innerText = "Valyuta kursları hələ yüklənməyib. Zəhmət olmasa bir az gözləyin.";
+    document.getElementById('result').innerText = "Loading.";
     return;
   }
 
