@@ -208,3 +208,68 @@ window.addEventListener('scroll', () => {
   });
 });
 
+
+
+
+
+
+// sqft to sqm
+
+let exchangeRates = {};
+
+async function fetchRates() {
+  try {
+    const res = await fetch("https://v6.exchangerate-api.com/v6/b2fa27befb19b06bd9962651/latest/AED");
+    const data = await res.json();
+
+    if (data.result !== "success" || !data.conversion_rates) {
+      throw new Error("Valyuta kursları tapılmadı.");
+    }
+
+    exchangeRates = data.conversion_rates;
+
+    const rateText = `
+      Cari valyuta kursları (1 AED): 
+      ${exchangeRates.USD?.toFixed(3) || "?"} USD, 
+      ${exchangeRates.EUR?.toFixed(3) || "?"} EUR, 
+      ${exchangeRates.AZN?.toFixed(2) || "?"} AZN
+      ${exchangeRates.TRY?.toFixed(2) || "?"} TRY, 
+    `;
+    document.getElementById("rates").innerText = rateText;
+
+  } catch (error) {
+    document.getElementById("rates").innerText = "Valyuta kursları yüklənə bilmədi.";
+    console.error("Valyuta kursu alınarkən xəta baş verdi:", error);
+  }
+}
+
+function calculate() {
+  const sqftPrice = parseFloat(document.getElementById('sqftPrice').value);
+
+  if (isNaN(sqftPrice)) {
+    document.getElementById('result').innerText = "Zəhmət olmasa düzgün ədədi daxil edin.";
+    return;
+  }
+
+  if (!exchangeRates || !exchangeRates.USD) {
+    document.getElementById('result').innerText = "Valyuta kursları hələ yüklənməyib. Zəhmət olmasa bir az gözləyin.";
+    return;
+  }
+
+  const sqmPriceAED = sqftPrice * 10.7639;
+  const usd = sqmPriceAED * exchangeRates.USD;
+  const eur = sqmPriceAED * exchangeRates.EUR;
+  const azn = sqmPriceAED * exchangeRates.AZN;
+  const tryy = sqmPriceAED * exchangeRates.TRY;
+
+  document.getElementById('result').innerHTML = `
+    <p>Price per m<sup>2</sup>:</p>
+    <strong>${sqmPriceAED.toFixed(2)} AED</strong><br><br>
+    ${usd.toFixed(2)} USD<br>
+    ${eur.toFixed(2)} EUR<br>
+    ${azn.toFixed(2)} AZN<br>
+    ${tryy.toFixed(2)} TRY
+  `;
+}
+
+window.addEventListener('DOMContentLoaded', fetchRates);
