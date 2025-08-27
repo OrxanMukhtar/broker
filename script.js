@@ -136,25 +136,25 @@ document.addEventListener('DOMContentLoaded', () => {
   showSlide(currentSlide);
 });
 
-// Average Sale Price Fetch (DLD API)
-async function fetchAvgPrice() {
-  const today = new Date().toISOString().split('T')[0];
-  const url = `https://api.dubaipulse.gov.ae/data/dld-transactions/v1?FromDate=${today}&ToDate=${today}`;
-  try {
-    const res = await fetch(url);
-    const json = await res.json();
-    const tx = json.data || [];
-    const avg = tx.reduce((sum, r) => sum + r.Amount, 0) / tx.length;
-    document.getElementById('avgPrice').textContent = isNaN(avg)
-      ? 'No transactions today'
-      : `Today's avg sale price: AED ${avg.toFixed(0)}`;
-  } catch (e) {
-    document.getElementById('avgPrice').textContent = 'Error loading data';
-    console.error(e);
-  }
-}
+// // Average Sale Price Fetch (DLD API)
+// async function fetchAvgPrice() {
+//   const today = new Date().toISOString().split('T')[0];
+//   const url = `https://api.dubaipulse.gov.ae/data/dld-transactions/v1?FromDate=${today}&ToDate=${today}`;
+//   try {
+//     const res = await fetch(url);
+//     const json = await res.json();
+//     const tx = json.data || [];
+//     const avg = tx.reduce((sum, r) => sum + r.Amount, 0) / tx.length;
+//     document.getElementById('avgPrice').textContent = isNaN(avg)
+//       ? 'No transactions today'
+//       : `Today's avg sale price: AED ${avg.toFixed(0)}`;
+//   } catch (e) {
+//     document.getElementById('avgPrice').textContent = 'Error loading data';
+//     console.error(e);
+//   }
+// }
 
-fetchAvgPrice();
+// fetchAvgPrice();
 
 
 
