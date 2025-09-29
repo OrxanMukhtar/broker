@@ -535,3 +535,12 @@ button:hover {
 .tradingview-widget-container {
   width: 100% !important;
 }
+
+
+.payment-methods {
+  text-align: center;
+}
+
+.payment-methods img {
+  height: 190px;
+}
